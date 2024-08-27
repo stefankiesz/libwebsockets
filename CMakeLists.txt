@@ -57,9 +57,12 @@ set(LWS_ROLE_RAW 1)
 set(LWS_WITH_POLL 1)
 
 if (ESP_PLATFORM)
+	message("setting LWS_ESP_PLATFORM")
 	set(LWS_ESP_PLATFORM 1)
 	#set(CMAKE_TOOLCHAIN_FILE contrib/cross-esp32.cmake)
 	set(LWIP_PROVIDE_ERRNO 1)
+else()
+	message("NOT setting LWS_ESP_PLATFORM")
 endif()
 
 # it's at this point any toolchain file is brought in

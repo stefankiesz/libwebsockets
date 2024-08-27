@@ -811,7 +811,10 @@ if (CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX OR COMPILER_IS_CLANG)
 	endif()
 
 	if ("${DISABLE_WERROR}" STREQUAL "OFF")
+ 		message("DISABLE_WERROR is OFF, will treat warnings as errors.")
 		set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Werror")
+  	else()
+   		message("DISABLE_WERROR is ON, will NOT treat warnings as errors.")
 	endif()
 
 	if (LWS_SUPPRESS_DEPRECATED_API_WARNINGS)

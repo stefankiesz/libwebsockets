@@ -31,7 +31,7 @@
 #include "mbedtls/error.h"
 
 // #if defined(LWS_HAVE_mbedtls_ssl_get_alpn_protocol)
-    #include "mbedtls/ssl.h"
+#include "mbedtls/ssl.h"
 // #endif
 
 

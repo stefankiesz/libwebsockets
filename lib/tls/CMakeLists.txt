@@ -383,6 +383,7 @@ if (LWS_WITH_MBEDTLS)
 	set(CMAKE_REQUIRED_INCLUDES ${CMAKE_REQUIRED_INCLUDES} ${MBEDTLS_INCLUDE_DIRS})
 
 	if (ESP_PLATFORM)
+		message("Building ESP_PLATFORM")
 		# we know we should have things
 		set(LWS_HAVE_MBEDTLS_AUTH_KEY_ID 1 CACHE BOOL x)
 		set(LWS_HAVE_mbedtls_ssl_conf_alpn_protocols 1 CACHE BOOL x)
@@ -397,6 +398,7 @@ if (LWS_WITH_MBEDTLS)
 		set(LWS_HAVE_mbedtls_rsa_complete 1 CACHE BOOL x) # not on xenial 2.2
 		set(LWS_HAVE_mbedtls_internal_aes_encrypt 1 CACHE BOOL x) # not on xenial 2.2
 	else()
+		message("NOT Building ESP_PLATFORM")
 		CHECK_C_SOURCE_COMPILES("#include <mbedtls/x509_crt.h>\nint main(void) { struct mbedtls_x509_crt c; c.authority_key_id.keyIdentifier.tag = MBEDTLS_ASN1_OCTET_STRING; return c.authority_key_id.keyIdentifier.tag; }\n" LWS_HAVE_MBEDTLS_AUTH_KEY_ID)
 		CHECK_C_SOURCE_COMPILES("#include <mbedtls/ssl.h>\nint main(void) { void *v = (void *)mbedtls_ssl_set_verify; return !!v; }\n" LWS_HAVE_mbedtls_ssl_set_verify)
 		CHECK_C_SOURCE_COMPILES("#include <mbedtls/ssl.h>\nint main(void) { void *v = (void *)mbedtls_ssl_conf_alpn_protocols; return !!v; }\n" LWS_HAVE_mbedtls_ssl_conf_alpn_protocols)

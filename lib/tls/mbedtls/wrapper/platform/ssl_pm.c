@@ -30,10 +30,6 @@
 #include "mbedtls/ctr_drbg.h"
 #include "mbedtls/error.h"
 
-// #if defined(LWS_HAVE_mbedtls_ssl_get_alpn_protocol)
-#include "mbedtls/ssl.h"
-// #endif
-
 
 #define X509_INFO_STRING_LENGTH 8192
 

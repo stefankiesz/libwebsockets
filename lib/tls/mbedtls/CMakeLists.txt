@@ -92,6 +92,7 @@ include_directories(wrapper/include wrapper/include/internal)
 		find_library(MBEDCRYPTO_LIBRARY mbedcrypto)
 
 		set(LWS_MBEDTLS_LIBRARIES "${MBEDTLS_LIBRARY}" "${MBEDX509_LIBRARY}" "${MBEDCRYPTO_LIBRARY}")
+		message("LWS_MBEDTLS_LIBRARIES is: ${LWS_MBEDTLS_LIBRARIES}")
 
 		include(FindPackageHandleStandardArgs)
 		find_package_handle_standard_args(MBEDTLS DEFAULT_MSG

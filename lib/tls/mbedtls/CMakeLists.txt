@@ -128,6 +128,9 @@ include_directories(wrapper/include wrapper/include/internal)
 		list(APPEND LIB_LIST ${MBEDTLS_LIBRARIES})
 	endif()
 
+	message("LIB_LIST is: ${LIB_LIST}")
+
+
 # old mbedtls has everything in mbedtls/net.h
 
 CHECK_C_SOURCE_COMPILES("#include <mbedtls/net_sockets.h>\nint main(void) { return 0;}\n" LWS_HAVE_MBEDTLS_NET_SOCKETS)

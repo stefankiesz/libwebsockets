@@ -403,7 +403,10 @@ if (LWS_WITH_MBEDTLS)
 		CHECK_C_SOURCE_COMPILES("#include <mbedtls/ssl.h>\nint main(void) { void *v = (void *)mbedtls_ssl_set_verify; return !!v; }\n" LWS_HAVE_mbedtls_ssl_set_verify)
 		CHECK_C_SOURCE_COMPILES("#include <mbedtls/ssl.h>\nint main(void) { void *v = (void *)mbedtls_ssl_conf_alpn_protocols; return !!v; }\n" LWS_HAVE_mbedtls_ssl_conf_alpn_protocols)
 
+		message("LWS_HAVE_mbedtls_ssl_get_alpn_protocol value before function exists check: ${LWS_HAVE_mbedtls_ssl_get_alpn_protocol}")
 		CHECK_FUNCTION_EXISTS(mbedtls_ssl_get_alpn_protocol LWS_HAVE_mbedtls_ssl_get_alpn_protocol PARENT_SCOPE)
+		message("LWS_HAVE_mbedtls_ssl_get_alpn_protocol value after function exists check: ${LWS_HAVE_mbedtls_ssl_get_alpn_protocol}")
+
 		CHECK_FUNCTION_EXISTS(mbedtls_ssl_conf_sni LWS_HAVE_mbedtls_ssl_conf_sni PARENT_SCOPE)
 		CHECK_FUNCTION_EXISTS(mbedtls_ssl_set_hs_ca_chain LWS_HAVE_mbedtls_ssl_set_hs_ca_chain PARENT_SCOPE)
 		CHECK_FUNCTION_EXISTS(mbedtls_ssl_set_hs_own_cert LWS_HAVE_mbedtls_ssl_set_hs_own_cert PARENT_SCOPE)
